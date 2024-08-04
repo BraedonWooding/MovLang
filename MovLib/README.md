@@ -16,7 +16,7 @@ In terms of execution the core loop being so low level does hurt execution perfo
 add:
     # while r2 > 0
     # neg = !r2
-    PC = NEG[r2] ? END
+    PC = INV_BOOL[r2] ? END
     # inc = r1 + 1
     r1 = INC[r1]
     # dec = r2 + 1

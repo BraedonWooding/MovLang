@@ -1,7 +1,7 @@
 namespace Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class Positive
     {
         const string SIMPLE_MOV = @"
             r1 = 2
