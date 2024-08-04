@@ -84,14 +84,6 @@ namespace MovLib.Core
         public string Content { get; set; }
     }
 
-    /// <summary>
-    /// Programs are executed against a virtual machine.
-    /// </summary>
-    public class VirtualMachine
-    {
-
-    }
-
     public class Compiler
     {
         private readonly List<CompilerMessage> _messages = new List<CompilerMessage>();
