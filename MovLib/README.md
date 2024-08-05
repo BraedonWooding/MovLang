@@ -54,7 +54,7 @@ SET:
 ELSE:
 ```
 
-> This is technically not the most optimal, since in some cases you can utilize the properties of the values, but it has to be written this way to handle cases like `OUT = r1 ? 1` where `OUT` is a write-only pin (so we have to ensure we don't write to it).  So given you can do safe reads (with no side-effects since there are move triggered instructions).
+> This is technically not the most optimal, since in some cases you can utilize the properties of the values, but it has to be written this way to handle cases like `OUT = r1 ? 1` where `OUT` is a write-only pin (so we have to ensure we don't write to it).  So given you can do safe reads (with no side-effects since there are move triggered instructions) you can do truly branchless jumps.
 
 ```
 # given <TARGET> = <COND> ? <VAL>
@@ -65,6 +65,7 @@ IF[1] = <VAL>
 
 # given PC = <COND> ? <VAL>
 # i.e. where <TARGET> is PC
+# this is not branchless (same issues as above) but saves an extra jump by inlining the SET/ELSE cases.
 IF[1] = <VAL>
 # also could be INC_2[PC]
 IF[0] = ELSE
